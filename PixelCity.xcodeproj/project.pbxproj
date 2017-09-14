@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6C01F8471F6A50BC007E6C2A /* DroppablePin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C01F8461F6A50BC007E6C2A /* DroppablePin.swift */; };
 		6CF81EB21F6359D900DE1939 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF81EB11F6359D900DE1939 /* AppDelegate.swift */; };
 		6CF81EB71F6359D900DE1939 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6CF81EB51F6359D900DE1939 /* Main.storyboard */; };
 		6CF81EB91F6359D900DE1939 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6CF81EB81F6359D900DE1939 /* Assets.xcassets */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6C01F8461F6A50BC007E6C2A /* DroppablePin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DroppablePin.swift; sourceTree = "<group>"; };
 		6CF81EAE1F6359D900DE1939 /* PixelCity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PixelCity.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6CF81EB11F6359D900DE1939 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6CF81EB61F6359D900DE1939 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -95,6 +97,7 @@
 		6CF81EC41F635A8400DE1939 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				6C01F8461F6A50BC007E6C2A /* DroppablePin.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -260,6 +263,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6CF81EB21F6359D900DE1939 /* AppDelegate.swift in Sources */,
+				6C01F8471F6A50BC007E6C2A /* DroppablePin.swift in Sources */,
 				6CF81EC91F635ACA00DE1939 /* MapVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
