@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13189.4" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13165.3"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -23,7 +23,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" zoomEnabled="NO" rotateEnabled="NO" pitchEnabled="NO" showsUserLocation="YES" showsCompass="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oZo-9d-bo7">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="666"/>
                             </mapView>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MTZ-hx-ANj">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
@@ -40,7 +40,7 @@
                                 <color key="backgroundColor" red="0.96470588235294119" green="0.65098039215686276" blue="0.13725490196078433" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZNa-dL-Mfo">
-                                <rect key="frame" x="309" y="597" width="50" height="50"/>
+                                <rect key="frame" x="309" y="596" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="jvm-Yz-rlT"/>
                                     <constraint firstAttribute="width" constant="50" id="qSk-fw-HSX"/>
@@ -53,19 +53,20 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5g9-rv-F6I">
                                 <rect key="frame" x="0.0" y="666" width="375" height="1"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="0I8-FZ-oTI"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="oZo-9d-bo7" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="1aO-Ec-GAl"/>
                             <constraint firstItem="oZo-9d-bo7" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Al3-93-KFb"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ZNa-dL-Mfo" secondAttribute="bottom" constant="20" id="FqN-Hm-mEc"/>
-                            <constraint firstItem="5g9-rv-F6I" firstAttribute="top" secondItem="oZo-9d-bo7" secondAttribute="bottom" constant="-1" id="GaD-WX-MGm"/>
+                            <constraint firstItem="5g9-rv-F6I" firstAttribute="top" secondItem="oZo-9d-bo7" secondAttribute="bottom" id="GaD-WX-MGm"/>
                             <constraint firstItem="5g9-rv-F6I" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="H5x-Y7-afp"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="5g9-rv-F6I" secondAttribute="trailing" id="KcO-UT-Q7O"/>
-                            <constraint firstItem="oZo-9d-bo7" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Vgo-a1-CYO"/>
+                            <constraint firstItem="5g9-rv-F6I" firstAttribute="top" secondItem="ZNa-dL-Mfo" secondAttribute="bottom" constant="20" id="VEW-Aw-M7I"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="5g9-rv-F6I" secondAttribute="bottom" id="hYc-cV-ayg"/>
-                            <constraint firstItem="oZo-9d-bo7" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="kZj-vH-1qW"/>
                             <constraint firstItem="oZo-9d-bo7" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="qjv-O4-Y37"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ZNa-dL-Mfo" secondAttribute="trailing" constant="16" id="sVc-NB-KMJ"/>
                         </constraints>
@@ -73,6 +74,8 @@
                     </view>
                     <connections>
                         <outlet property="mapView" destination="oZo-9d-bo7" id="VqE-Dx-7gh"/>
+                        <outlet property="pullUpView" destination="5g9-rv-F6I" id="0R4-S8-oTs"/>
+                        <outlet property="pullUpViewHeightConstraints" destination="0I8-FZ-oTI" id="7cL-02-0wh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
