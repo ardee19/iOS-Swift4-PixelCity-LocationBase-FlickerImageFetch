@@ -27,6 +27,9 @@ class MapVC: UIViewController, UIGestureRecognizerDelegate {
     var spinner: UIActivityIndicatorView?
     var progressLabel: UILabel?
     
+    var flowLayout = UICollectionViewFlowLayout()
+    var collectionView: UICollectionView?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -35,6 +38,14 @@ class MapVC: UIViewController, UIGestureRecognizerDelegate {
         
         configureLocationServices()
         addDoubleTap()
+        
+        collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: flowLayout)
+        collectionView?.register(PhotoCell.self, forCellWithReuseIdentifier: "photoCell")
+        collectionView?.delegate = self
+        collectionView?.dataSource = self
+        collectionView?.backgroundColor = #colorLiteral(red: 0.5843137503, green: 0.8235294223, blue: 0.4196078479, alpha: 1)
+        
+        pullUpView.addSubview(collectionView!)
     }
     
     func addDoubleTap() {
@@ -65,12 +76,30 @@ class MapVC: UIViewController, UIGestureRecognizerDelegate {
     }
     
     func addSpinner() {
+        if spinner != nil {
+            spinner?.removeFromSuperview()
+        }
+        
         spinner = UIActivityIndicatorView()
         spinner?.center = CGPoint(x: (screenSize.width / 2) - ((spinner?.frame.width)! / 2), y: 150)
         spinner?.activityIndicatorViewStyle = .whiteLarge
         spinner?.color = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
         spinner?.startAnimating()
-        pullUpView.addSubview(spinner!)
+        collectionView?.addSubview(spinner!)
+    }
+    
+    func addProgressLabel() {
+        if progressLabel != nil {
+            progressLabel?.removeFromSuperview()
+        }
+        
+        progressLabel = UILabel()
+        progressLabel?.frame = CGRect(x: (screenSize.width / 2) - 120, y: 175, width: 240, height: 40)
+        progressLabel?.font = UIFont(name: "Avenir Next", size: 18)
+        progressLabel?.textColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
+        progressLabel?.textAlignment = .center
+        progressLabel?.text = "12/40 Photos Loaded"
+        collectionView?.addSubview(progressLabel!)
     }
     
     @IBAction func centerMapBtnPressed(_ sender: Any) {
@@ -117,6 +146,7 @@ extension MapVC: MKMapViewDelegate {
         animateViewUp()
         addSwipe()
         addSpinner()
+        addProgressLabel()
 
         let touchPoint = sender.location(in: mapView)
         let touchCoordinate = mapView.convert(touchPoint, toCoordinateFrom: mapView)
@@ -152,5 +182,23 @@ extension MapVC: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         
         centerMapOnUserLocation()
+    }
+}
+
+extension MapVC: UICollectionViewDelegate, UICollectionViewDataSource {
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        // Number of items in array
+        return 4
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "photoCell", for: indexPath) as! PhotoCell
+        return cell
     }
 }
