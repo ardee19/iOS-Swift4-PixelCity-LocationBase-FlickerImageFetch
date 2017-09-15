@@ -48,6 +48,27 @@ class MapVC: UIViewController, UIGestureRecognizerDelegate {
 
 extension MapVC: MKMapViewDelegate {
     
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        
+        if annotation is MKUserLocation {
+            return nil
+        }
+        
+        // Same as marker on Apple Maps
+        let pointAnnotation = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: "droppablePin")
+        pointAnnotation.markerTintColor = UIColor.orange
+        pointAnnotation.animatesWhenAdded = true
+        return pointAnnotation
+        
+        // Shows pin annotation
+        /*
+        let pinAnnotation = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "droppablePin")
+        pinAnnotation.pinTintColor = UIColor.orange
+        pinAnnotation.animatesDrop = true
+        return pinAnnotation
+         */
+    }
+    
     func centerMapOnUserLocation() {
         
         guard let coordinate = locationManager.location?.coordinate else { return }
@@ -74,6 +95,8 @@ extension MapVC: MKMapViewDelegate {
             mapView.removeAnnotation(annotation)
         }
     }
+    
+    
 }
 
 extension MapVC: CLLocationManagerDelegate {
